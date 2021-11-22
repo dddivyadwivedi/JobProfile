@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import {Fragment} from 'react';
+import Shortlisted from './Pages/Shortlist/shortlisted'
+import Rejected from './Pages/Rejected/rejected'
+import {Routes, Route } from 'react-router-dom'
+import Nav from './Component/Header/Nav'
+import Details from './Pages/Details/details'
+import Home from './Pages/Home/Home'
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment >
+     <Nav />
+    <Routes>
+      <Route  exact path='/' element={<Home/>} />
+      <Route exact path='/shortlisted' element={<Shortlisted/>} />
+      <Route  exact path='/rejected' element={<Rejected/>} />
+      <Route exact path='/editCandidate/:id' element = {<Details/>}/>
+    </Routes>
+    </Fragment>
   );
 }
 
